@@ -225,6 +225,7 @@ board_c_files := \
     $(Drivers_path)/BSP/STM32469I-Discovery/stm32469i_discovery_sdram.c \
     $(Drivers_path)/BSP/STM32469I-Discovery/stm32469i_discovery_ts.c \
     $(Drivers_path)/BSP/Components/ft6x06/ft6x06.c \
+    $(Drivers_path)/BSP/Components/nt35510/nt35510.c \
     $(Drivers_path)/BSP/Components/otm8009a/otm8009a.c
 
 board_cpp_files :=

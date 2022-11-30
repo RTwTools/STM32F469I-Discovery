@@ -1,0 +1,166 @@
+{
+  "Application": {
+    "Screens": [
+      {
+        "Name": "Screen1",
+        "Components": [
+          {
+            "Type": "Box",
+            "Name": "background",
+            "Width": 800,
+            "Height": 480,
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            }
+          },
+          {
+            "Type": "Box",
+            "Name": "boxRedTop",
+            "Width": 267,
+            "Height": 100,
+            "Color": {
+              "Red": 255
+            }
+          },
+          {
+            "Type": "Box",
+            "Name": "boxGreenTop",
+            "X": 267,
+            "Width": 266,
+            "Height": 100,
+            "Color": {
+              "Green": 255
+            }
+          },
+          {
+            "Type": "Box",
+            "Name": "boxBlueTop",
+            "X": 533,
+            "Width": 267,
+            "Height": 100,
+            "Color": {
+              "Blue": 255
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textBoard",
+            "Y": 165,
+            "Width": 800,
+            "Height": 50,
+            "TextId": "__SingleUse_1IAY",
+            "TextRotation": "0"
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textDisplay",
+            "Y": 215,
+            "Width": 800,
+            "Height": 50,
+            "TextId": "__SingleUse_UF95",
+            "TextRotation": "0"
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textDriver",
+            "Y": 265,
+            "Width": 800,
+            "Height": 50,
+            "TextId": "__SingleUse_HVFB",
+            "TextRotation": "0"
+          },
+          {
+            "Type": "Box",
+            "Name": "boxRedBottom",
+            "Y": 380,
+            "Width": 267,
+            "Height": 100,
+            "Color": {
+              "Red": 255
+            }
+          },
+          {
+            "Type": "Box",
+            "Name": "boxGreenBottom",
+            "X": 267,
+            "Y": 380,
+            "Width": 266,
+            "Height": 100,
+            "Color": {
+              "Green": 255
+            }
+          },
+          {
+            "Type": "Box",
+            "Name": "boxBlueBottom",
+            "X": 533,
+            "Y": 380,
+            "Width": 267,
+            "Height": 100,
+            "Color": {
+              "Blue": 255
+            }
+          }
+        ],
+        "Interactions": []
+      }
+    ],
+    "CustomContainerDefinitions": [],
+    "Name": "STM32F469I-Discovery",
+    "Resolution": {
+      "Width": 800,
+      "Height": 480
+    },
+    "SelectedColorDepth": 16,
+    "StartupScreenName": "Screen1",
+    "SelectedStartupLanguage": "GB",
+    "Skin": "Blue",
+    "TouchGfxPath": "../Middlewares/ST/touchgfx",
+    "UIPath": ".",
+    "AvailableColorDepths": [
+      16
+    ],
+    "AvailableLCDs": {
+      "24": "LCD24bpp",
+      "16": "LCD16bpp"
+    },
+    "AvailableSections": [
+      "ExtFlashSection",
+      "IntFlashSection"
+    ],
+    "AvailableResolutions": [
+      {
+        "Width": 800,
+        "Height": 480
+      }
+    ],
+    "PhysicalButtons": [],
+    "FrameworkFeatures": {
+      "LCD16bpp": {
+        "Id": "LCD16bpp",
+        "IsEnabled": true
+      }
+    },
+    "GenerateAssetsCommand": "make -f simulator/gcc/Makefile assets -j8",
+    "PostGenerateCommand": "touchgfx update_project --project-file=simulator/msvs/Application.vcxproj",
+    "PostGenerateTargetCommand": "touchgfx update_project",
+    "CompileSimulatorCommand": "make -f simulator/gcc/Makefile -j8",
+    "RunSimulatorCommand": "build\\bin\\simulator.exe",
+    "CompileTargetCommandOverride": "make -f ../gcc/Makefile -j10",
+    "FlashTargetCommandOverride": "make -f ../gcc/Makefile -j10 flash",
+    "LandscapeSkinX": 0,
+    "LandscapeSkinY": 0,
+    "PortraitSkinX": 0,
+    "PortraitSkinY": 0,
+    "DisplayOrientation": "Landscape",
+    "Family": "STM32F4",
+    "Platform": "m4",
+    "ProjectFile": "../STM32F469I-DISCO.ioc",
+    "OptionalComponentsRoot": "../Middlewares/ST/touchgfx_components",
+    "OptionalComponents": []
+  },
+  "Version": "4.20.0",
+  "CreatedBy": "4.20.0"
+}

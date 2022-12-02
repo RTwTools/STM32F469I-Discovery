@@ -152,6 +152,7 @@ uint16_t TS_IO_ReadMultiple(uint8_t Addr, uint8_t Reg, uint8_t *Buffer, uint16_t
 void    TS_IO_WriteMultiple(uint8_t Addr, uint8_t Reg, uint8_t *Buffer, uint16_t Length);
 void    TS_IO_Delay(uint32_t Delay);
 void     OTM8009A_IO_Delay(uint32_t Delay);
+void     NT35510_IO_Delay(uint32_t Delay);
 /**
   * @}
   */
@@ -910,6 +911,16 @@ void TS_IO_Delay(uint32_t Delay)
   * @param  Delay: Delay in ms
   */
 void OTM8009A_IO_Delay(uint32_t Delay)
+{
+  HAL_Delay(Delay);
+}
+
+/**************************** LINK NT35510 (Display driver) ******************/
+/**
+ * @brief  NT35510 delay
+ * @param  Delay: Delay in ms
+ */
+void NT35510_IO_Delay(uint32_t Delay)
 {
   HAL_Delay(Delay);
 }

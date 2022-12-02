@@ -25,6 +25,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "../Components/otm8009a/otm8009a.h"
+#include "../Components/nt35510/nt35510.h"
 #include "stm32469i_discovery_sdram.h"
 #include "stm32469i_discovery_qspi.h"
 /* USER CODE END Includes */
@@ -403,10 +404,10 @@ static void MX_DSIHOST_DSI_Init(void)
   CmdCfg.CommandSize = 200;
   CmdCfg.TearingEffectSource = DSI_TE_EXTERNAL;
   CmdCfg.TearingEffectPolarity = DSI_TE_RISING_EDGE;
-  CmdCfg.HSPolarity = DSI_HSYNC_ACTIVE_LOW;
-  CmdCfg.VSPolarity = DSI_VSYNC_ACTIVE_LOW;
+  CmdCfg.HSPolarity = DSI_HSYNC_ACTIVE_HIGH;
+  CmdCfg.VSPolarity = DSI_VSYNC_ACTIVE_HIGH;
   CmdCfg.DEPolarity = DSI_DATA_ENABLE_ACTIVE_HIGH;
-  CmdCfg.VSyncPol = DSI_VSYNC_FALLING;
+  CmdCfg.VSyncPol = DSI_VSYNC_RISING;
   CmdCfg.AutomaticRefresh = DSI_AR_DISABLE;
   CmdCfg.TEAcknowledgeRequest = DSI_TE_ACKNOWLEDGE_ENABLE;
   if (HAL_DSI_ConfigAdaptedCommandMode(&hdsi, &CmdCfg) != HAL_OK)
@@ -475,8 +476,8 @@ static void MX_LTDC_Init(void)
 
   /* USER CODE END LTDC_Init 1 */
   hltdc.Instance = LTDC;
-  hltdc.Init.HSPolarity = LTDC_HSPOLARITY_AL;
-  hltdc.Init.VSPolarity = LTDC_VSPOLARITY_AL;
+  hltdc.Init.HSPolarity = LTDC_HSPOLARITY_AH;
+  hltdc.Init.VSPolarity = LTDC_VSPOLARITY_AH;
   hltdc.Init.DEPolarity = LTDC_DEPOLARITY_AL;
   hltdc.Init.PCPolarity = LTDC_PCPOLARITY_IPC;
   hltdc.Init.HorizontalSync = 1;
@@ -518,7 +519,7 @@ static void MX_LTDC_Init(void)
   DSI_LPCmdTypeDef LPCmd;
 
   HAL_DSI_Start(&hdsi);
-  OTM8009A_Init(OTM8009A_FORMAT_RBG565, LCD_ORIENTATION_LANDSCAPE);
+  NT35510_Init(NT35510_FORMAT_RGB565, LCD_ORIENTATION_LANDSCAPE);
   HAL_DSI_ShortWrite(&hdsi, 0, DSI_DCS_SHORT_PKT_WRITE_P1, OTM8009A_CMD_DISPOFF, 0x00);
 
   LPCmd.LPGenShortWriteNoP = DSI_LP_GSW0P_DISABLE;
@@ -691,7 +692,7 @@ static void MX_GPIO_Init(void)
 
   /*Configure GPIO pin : PH7 */
   GPIO_InitStruct.Pin = GPIO_PIN_7;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_OD;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
   HAL_GPIO_Init(GPIOH, &GPIO_InitStruct);
